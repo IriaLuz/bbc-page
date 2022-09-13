@@ -1,17 +1,17 @@
 module.exports = {
-  extends: [
+  "extends": [
     "stylelint-config-standard",
     "stylelint-config-standard-scss",
     "stylelint-prettier/recommended",
   ],
-  ignoreFiles: [
+  "ignoreFiles": [
     "node_modules/**/*.css",
     "out/**/*.css",
     "coverage/**/*",
     ".next/**/*.css",
   ],
-  plugins: ["stylelint-prettier", "stylelint-scss"],
-  rules: {
+  "plugins": ["stylelint-prettier", "stylelint-scss"],
+  "rules": {
     "string-quotes": "double",
     "prettier/prettier": true,
     "selector-class-pattern": null,
