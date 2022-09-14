@@ -13,6 +13,9 @@ const nextConfig = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  images: {
+    domains: ["bulma.io"],
+  },
 };
 
 module.exports = nextConfig;
