@@ -6,8 +6,16 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "prepare": "husky install"
+    "eslint": "next lint --fix",
+    "stylelint": "stylelint --fix **/*.{scss,css}",
+    "check-format": "prettier --check .",
+    "prepare": "husky install",
+    "lint": "yarn eslint && yarn stylelint",
+    "test": "jest",
+    "tsc": "tsc",
+    "coverage": "jest --coverage --collectCoverageFrom='./src/**'",
+    "storybook": "start-storybook -p 6006 -s ./public",
+    "build-storybook": "build-storybook -s public"
   },
   "dependencies": {
     "@axe-core/react": "^4.4.3",
