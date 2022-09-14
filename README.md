@@ -14,6 +14,14 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
+### Storybook
+
+1.  To run Storybook locally, enter command `yarn storybook`.
+2.  To find our hosted instance of Storybook, please visit:
+3.  Supporting documentation can be found: [Storybook Docs]('https://storybook.js.org/docs/react/writing-stories/introduction')
+
+Storybook is a page / component design tool used to help build and document components, as well as demo them before being integrated into a live system. Storybook and Next.js pair together very well, allowing us to design and document whole pages if we need to.
+
 [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
