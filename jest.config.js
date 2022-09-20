@@ -7,12 +7,13 @@ module.exports = {
   moduleNameMapper: {
     "^.+\\.(css|less|scss)$": "babel-jest",
     "^@components": "<rootDir>/src/components",
+    "^@pages": ["/src/pages"],
     "^@types": ["src/types"],
     "^@styles/(.*)": ["src/styles/$1"],
   },
   modulePathIgnorePatterns: ["<rootDir>/src/stories", "<rootDir>/src/mocks"],
   coveragePathIgnorePatterns: [
-    "<rootDir>/src/pages/_app.page.tsx",
+    "<rootDir>/src/pages/_app.tsx",
     ".*stories.tsx",
     ".*__snapshots__/.*",
   ],
