@@ -5,5 +5,3 @@ import { resolve } from "path";
 
 const envFile = resolve(__dirname, ".");
 loadEnvConfig(envFile);
-
-beforeAll(() => mswServer.listen());
