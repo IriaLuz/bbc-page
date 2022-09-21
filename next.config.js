@@ -4,7 +4,7 @@ const StylelintPlugin = require("stylelint-webpack-plugin");
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  pageExtensions: ["tsx"],
+  pageExtensions: ["page.tsx"],
   webpack: (config, options) => {
     config.plugins.push(new StylelintPlugin());
     return config;
