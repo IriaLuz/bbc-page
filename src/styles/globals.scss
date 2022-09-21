@@ -1,8 +1,25 @@
-@use "bulma/bulma" as bulma;
+@use "@styles/theme/colors";
+@import "@styles/lib/helper";
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: sans-serif;
+  font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
+}
+
+.button {
+  border-radius: 0;
+  font-weight: 800;
+
+  &:hover {
+    background-color: none;
+  }
+
+  &.is-primary {
+    &:hover,
+    &.is-hovered {
+      background-color: colors.$submit-button-green;
+    }
+  }
 }

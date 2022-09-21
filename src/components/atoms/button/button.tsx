@@ -13,9 +13,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     { primary = true, label, disabled = false, onClick, tabIndex }: ButtonProps,
     ref
   ) => {
-    const buttonType = primary
-      ? `button  is-rounded is-primary`
-      : `button  is-rounded is-outline`;
+    const buttonType = primary ? `button is-primary` : `button is-outlined`;
     return (
       <button
         ref={ref}
