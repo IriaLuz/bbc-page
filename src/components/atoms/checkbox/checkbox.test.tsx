@@ -1,16 +1,46 @@
-import React from "react";
-import { render, screen } from "@testing-library/react";
+import * as React from "react";
+import { render, screen, fireEvent, cleanup } from "@testing-library/react";
+import { Checkbox } from "./checkbox";
 
-import { Checkbox } from "@components";
+afterEach(cleanup);
+// When browser loaded and tests first clicked, all pass
+// When tests re-run, something in memory fails tests.
+// Just reload browser
+//------------------------------------------------------------------------------
+test("checkbox handleChange is called when clicked", () => {
+  const handleChange = jest.fn();
+  render(<Checkbox label={"A"} checked={false} handleChange={handleChange} />);
 
-it("changes style of div as checkbox is checked/unchecked", () => {
-  //   const handleChange = jest.fn();
-  render(<Checkbox />);
+  const checkbox = screen.getByTestId("test");
+  fireEvent.click(checkbox);
+  expect(handleChange).toHaveBeenCalledTimes(1);
+});
+//-------------------------------------------------------------------------------
+test("checkbox is checked when true value provided", () => {
+  const handleChange = jest.fn();
+  render(
+    <Checkbox
+      label={"this is a checkbox"}
+      checked={true}
+      handleChange={handleChange}
+    />
+  );
 
-  const checkbox = screen.getByRole("checkbox");
+  const checkbox = screen.getByTestId("test");
+  expect((checkbox as HTMLInputElement).checked).toEqual(true);
+});
+//------------------------------------------------------------------------------
+test("checkbox is unchecked when false value provided", () => {
+  const handleChangeA = jest.fn();
+  render(
+    <Checkbox
+      label={"this is a checkbox"}
+      checked={false}
+      handleChange={handleChangeA}
+    />
+  );
 
-  //   fireEvent.click(checkbox);
-  //   expect(handleChange).toHaveBeenCalledTimes(1);
-  expect(checkbox).toBeInTheDocument();
-  expect(checkbox).not.toBeChecked();
+  const checkbox = screen.getByTestId("test");
+  const isChecked = (checkbox as HTMLInputElement).checked;
+  expect(isChecked).toEqual(false);
 });
