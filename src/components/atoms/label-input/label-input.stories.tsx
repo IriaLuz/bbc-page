@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { LabelInput } from "./label-input";
 
 export default {
-  title: "atoms/button",
+  title: "atoms/label-Input",
   component: LabelInput,
   decorators: [
     (Story) => (
