@@ -11,7 +11,6 @@ export const Checkbox = ({ checked, handleChange, label }: CheckboxProps) => (
   <div>
     <label htmlFor="checkbox">
       <input
-        data-testid="test"
         id="checkbox"
         className={styles.input}
         type="checkbox"
