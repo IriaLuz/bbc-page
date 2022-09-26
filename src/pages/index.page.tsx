@@ -1,23 +1,11 @@
-import React, { useState } from "react";
-import { Checkbox, LabelInput } from "@components";
+import React from "react";
 import type { NextPage } from "next";
+import { GetInTouchForm } from "src/components/molecules/get-in-touch-form/get-in-touch-form";
 
-const Home: NextPage = () => {
-  const [checked, setChecked] = useState<boolean>(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(e.target.checked);
-  };
-  return (
-    <>
-      <h1>Hello World</h1>
-      <LabelInput placeholder="name" />
-      <Checkbox
-        handleChange={handleChange}
-        checked={checked}
-        label="I accept the"
-      />
-    </>
-  );
-};
+const Home: NextPage = () => (
+  <>
+    <h1>Hello World</h1>
+    <GetInTouchForm />
+  </>
+);
 export default Home;
