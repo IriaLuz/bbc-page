@@ -1,0 +1,18 @@
+@use "@styles/theme/colors";
+
+.input {
+  border: 1px solid colors.$label-input-border-gray;
+  padding: 1rem;
+  width: 100%;
+  font-size: medium;
+  border-radius: 0;
+
+  &::placeholder {
+    color: colors.$label-input-text-gray;
+  }
+
+  &:hover,
+  &.is-hovered {
+    border: 1px solid colors.$label-input-border-gray;
+  }
+}

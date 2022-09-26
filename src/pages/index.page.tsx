@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Checkbox } from "@components";
+import { Checkbox, LabelInput } from "@components";
 import type { NextPage } from "next";
 
 const Home: NextPage = () => {
@@ -11,6 +11,7 @@ const Home: NextPage = () => {
   return (
     <>
       <h1>Hello World</h1>
+      <LabelInput placeholder="name" />
       <Checkbox
         handleChange={handleChange}
         checked={checked}
@@ -19,5 +20,4 @@ const Home: NextPage = () => {
     </>
   );
 };
-
 export default Home;
