@@ -18,11 +18,11 @@ export const Checkbox = ({ checked, handleChange, label }: CheckboxProps) => (
         checked={checked}
         onChange={handleChange}
       />
-      {label}{" "}
+      {label}
       <Link href="/" passHref>
         Terms and Conditions
       </Link>
     </label>
-    <p>Is the box checked? {checked.toString()}</p>
+    <p>Is the box checked?{checked.toString()}</p>
   </div>
 );

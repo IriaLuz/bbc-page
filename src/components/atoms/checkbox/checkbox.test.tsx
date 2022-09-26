@@ -11,7 +11,7 @@ test("checkbox handleChange is called when clicked", () => {
   const handleChange = jest.fn();
   render(<Checkbox label={"A"} checked={false} handleChange={handleChange} />);
 
-  const checkbox = screen.getByTestId("test");
+  const checkbox = screen.getByRole("checkbox");
   fireEvent.click(checkbox);
   expect(handleChange).toHaveBeenCalledTimes(1);
 });
@@ -26,21 +26,21 @@ test("checkbox is checked when true value provided", () => {
     />
   );
 
-  const checkbox = screen.getByTestId("test");
+  const checkbox = screen.getByRole("checkbox");
   expect((checkbox as HTMLInputElement).checked).toEqual(true);
 });
 //------------------------------------------------------------------------------
 test("checkbox is unchecked when false value provided", () => {
-  const handleChangeA = jest.fn();
+  const handleChange = jest.fn();
   render(
     <Checkbox
       label={"this is a checkbox"}
       checked={false}
-      handleChange={handleChangeA}
+      handleChange={handleChange}
     />
   );
 
-  const checkbox = screen.getByTestId("test");
+  const checkbox = screen.getByRole("checkbox");
   const isChecked = (checkbox as HTMLInputElement).checked;
   expect(isChecked).toEqual(false);
 });
