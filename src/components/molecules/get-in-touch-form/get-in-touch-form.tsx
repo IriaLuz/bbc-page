@@ -13,10 +13,12 @@ export const GetInTouchForm = () => {
       <div className={styles.gridItem}>
         <TextBox placeholder="Please share your experience" />
       </div>
-      <h3 className={styles.titleContactInfo}>Your contact info</h3>
-      <LabelInput placeholder="Name" />
-      <LabelInput placeholder="Email address" />
-      <LabelInput placeholder="Contact number" />
+      <h3>Your contact info</h3>
+      <div className={styles.smallInput}>
+        <LabelInput placeholder="Name" />
+        <LabelInput placeholder="Email address" />
+        <LabelInput placeholder="Contact number" />
+      </div>
       <LabelInput placeholder="Location" />
       <LabelInput placeholder="Age" />
       <Checkbox
