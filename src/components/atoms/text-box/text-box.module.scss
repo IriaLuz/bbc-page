@@ -1,12 +1,13 @@
 @use "@styles/theme/colors";
 
-.input {
+.textBox {
   border: 1px solid colors.$label-input-border-gray;
   padding: 1rem;
   font-size: medium;
   border-radius: 0;
   width: 100%;
   box-sizing: border-box;
+  height: 100px;
 
   &::placeholder {
     color: colors.$label-input-text-gray;

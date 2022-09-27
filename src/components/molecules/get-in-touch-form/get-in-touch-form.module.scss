@@ -1,0 +1,14 @@
+@use "@styles/theme/colors";
+
+.gridContainer {
+  background-color: colors.$background-form-gray;
+  display: grid;
+  padding: 15px;
+  grid-template-rows: repeat(6 1fr);
+  row-gap: 10px;
+  width: 60%;
+}
+
+.gridItem {
+  height: 100px;
+}

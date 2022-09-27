@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Checkbox, LabelInput, Button } from "@components";
+import { Checkbox, LabelInput, Button, TextBox } from "@components";
+import styles from "./get-in-touch-form.module.scss";
 
 export const GetInTouchForm = () => {
   const [checked, setChecked] = useState<boolean>(false);
@@ -8,26 +9,22 @@ export const GetInTouchForm = () => {
     setChecked(e.target.checked);
   };
   return (
-    <>
-      <div>
-        <LabelInput placeholder="Please share your experience" />
+    <div className={`container ${styles.gridContainer}`}>
+      <div className={styles.gridItem}>
+        <TextBox placeholder="Please share your experience" />
       </div>
-      <div>
-        <LabelInput placeholder="Name" />
-        <LabelInput placeholder="Email address" />
-        <LabelInput placeholder="Contact number" />
-      </div>
-      <div>
-        <LabelInput placeholder="Location" />
-        <LabelInput placeholder="Age" />
-      </div>
-
+      <h3 className={styles.titleContactInfo}>Your contact info</h3>
+      <LabelInput placeholder="Name" />
+      <LabelInput placeholder="Email address" />
+      <LabelInput placeholder="Contact number" />
+      <LabelInput placeholder="Location" />
+      <LabelInput placeholder="Age" />
       <Checkbox
         handleChange={handleChange}
         checked={checked}
         label="I accept the"
       />
-      <Button primary={true} label="submit" />
-    </>
+      <Button label="submit" />
+    </div>
   );
 };
