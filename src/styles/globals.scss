@@ -23,6 +23,10 @@ body {
     &.is-hovered {
       background-color: colors.$submit-button-green;
     }
+
+    &:focus:not(:active) {
+      box-shadow: unset;
+    }
   }
 }
 
