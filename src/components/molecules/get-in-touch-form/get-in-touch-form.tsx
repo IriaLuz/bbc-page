@@ -26,7 +26,7 @@ export const GetInTouchForm = () => {
         checked={checked}
         label="I accept the"
       />
-      <Button label="submit" />
+      <Button label="Submit" />
     </div>
   );
 };

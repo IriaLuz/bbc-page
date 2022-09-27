@@ -24,6 +24,10 @@ body {
       background-color: colors.$submit-button-green;
     }
 
+    &:active {
+      background-color: colors.$label-input-border-gray;
+    }
+
     &:focus:not(:active) {
       box-shadow: unset;
     }
