@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 
-import { Button } from "./button";
+import { Button } from "@atoms";
 
 describe("Test Button component", () => {
   it("IconButton component is rendered", () => {
