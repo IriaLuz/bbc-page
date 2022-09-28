@@ -1,6 +1,6 @@
 import React from "react";
 import type { NextPage } from "next";
-import { GetInTouchForm } from "src/components/molecules/get-in-touch-form/get-in-touch-form";
+import { GetInTouchForm } from "@components";
 
 const Home: NextPage = () => (
   <>

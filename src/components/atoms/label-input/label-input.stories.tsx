@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { LabelInput } from "./label-input";
+import { LabelInput } from "@atoms";
 
 export default {
   title: "atoms/label-Input",

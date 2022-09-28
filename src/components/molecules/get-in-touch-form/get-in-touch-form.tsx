@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Checkbox, LabelInput, Button, TextBox } from "@components";
+import { Checkbox, LabelInput, Button, TextBox } from "@atoms";
 import styles from "./get-in-touch-form.module.scss";
 
 export const GetInTouchForm = () => {
