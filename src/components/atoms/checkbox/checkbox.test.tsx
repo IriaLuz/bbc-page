@@ -1,6 +1,6 @@
 import * as React from "react";
 import { render, screen, fireEvent, cleanup } from "@testing-library/react";
-import { Checkbox } from "@atoms";
+import { Checkbox } from "./checkbox";
 
 afterEach(cleanup);
 // When browser loaded and tests first clicked, all pass
