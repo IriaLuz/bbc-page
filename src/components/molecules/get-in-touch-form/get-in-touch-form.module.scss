@@ -1,19 +1,29 @@
 @use "@styles/theme/colors";
+@import "bulma/sass/utilities/mixins";
 
 .gridContainer {
   background-color: colors.$background-form-gray;
   display: grid;
-  padding: 15px;
-  row-gap: 10px;
-  width: 60%;
+  padding: 0.9rem;
+  row-gap: 0.6rem;
+  max-width: 50rem;
+  min-width: 33rem;
+
+  @include widescreen {
+    width: 50rem;
+  }
 }
 
 .gridItem {
-  height: 119px;
-  margin: 0 0 10px;
+  height: 7.4rem;
+  margin: 0 0 0.6rem;
 }
 
 .smallInput {
-  display: flex;
-  gap: 10px;
+  display: grid;
+  gap: 0.6rem;
+
+  @include tablet {
+    display: flex;
+  }
 }
