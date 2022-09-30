@@ -8,10 +8,20 @@ export const GetInTouchForm = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(e.target.checked);
   };
+
+  const [count, setCount] = React.useState(0);
+  const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setCount(e.target.value.length);
+  };
+
   return (
     <div className={`container ${styles.gridContainer}`}>
       <div className={styles.gridItem}>
-        <TextBox placeholder="Please share your experience" />
+        <TextBox
+          onChange={onChange}
+          count={count}
+          placeholder="Please share your experience"
+        />
       </div>
       <h3>Your contact info</h3>
       <div className={styles.smallInput}>
