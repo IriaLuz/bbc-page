@@ -4,8 +4,8 @@
 .formContainer {
   background-color: colors.$background-form;
   display: grid;
-  padding: 0.9rem;
-  gap: 0.6rem;
+  padding: 1rem;
+  gap: 0.5rem;
   max-width: 50rem;
   min-width: 33rem;
 
@@ -16,12 +16,12 @@
 
 .textBox {
   height: 7.4rem;
-  margin: 0 0 0.6rem;
+  margin: 0 0 0.5rem;
 }
 
 .smallInput {
   display: grid;
-  gap: 0.6rem;
+  gap: 0.5rem;
 
   @include tablet {
     display: flex;
