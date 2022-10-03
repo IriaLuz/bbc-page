@@ -1,7 +1,7 @@
 @use "@styles/theme/colors";
 
 .textBox {
-  border: 0.063rem solid colors.$label-input-border-gray;
+  border: colors.$input-border;
   padding: 1rem;
   border-radius: 0;
   width: 100%;
@@ -9,17 +9,21 @@
   height: 6.2rem;
 
   &::placeholder {
-    color: colors.$label-input-text-gray;
+    color: colors.$placeholder-text;
   }
 
   &:hover,
   &.is-hovered {
-    border: 0.063rem solid colors.$label-input-border-gray;
+    border: colors.$input-border;
+  }
+
+  &:focus {
+    border-radius: 3px;
   }
 }
 
 .counter {
   margin: 0;
-  color: colors.$label-input-border-gray;
+  color: colors.$counter-text;
   font-size: 0.76rem;
 }

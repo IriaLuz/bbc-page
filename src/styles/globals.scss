@@ -21,11 +21,11 @@ body {
   &.is-primary {
     &:hover,
     &.is-hovered {
-      background-color: colors.$submit-button-green;
+      background-color: colors.$submit-button;
     }
 
     &:active {
-      background-color: colors.$label-input-border-gray;
+      background-color: colors.$input-border;
     }
 
     &:focus:not(:active) {
@@ -33,6 +33,17 @@ body {
     }
   }
 }
+
+// input {
+//   box-shadow: none;
+
+//   &:focus {
+//     &:hover,
+//     &:active {
+//       border-color: colors.$input-focus;
+//     }
+//   }
+// }
 
 h3 {
   font-weight: 800;
