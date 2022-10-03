@@ -15,8 +15,8 @@ export const GetInTouchForm = () => {
   };
 
   return (
-    <div className={`container ${styles.gridContainer}`}>
-      <div className={styles.gridItem}>
+    <div className={`container ${styles.formContainer}`}>
+      <div className={styles.textBox}>
         <TextBox
           onChange={onChange}
           count={count}
