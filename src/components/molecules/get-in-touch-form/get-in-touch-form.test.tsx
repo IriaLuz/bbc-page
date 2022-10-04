@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  render,
-  screen,
-  cleanup,
-  fireEvent,
-  getByTestId,
-} from "@testing-library/react";
+import { render, screen, cleanup, fireEvent } from "@testing-library/react";
 import { Checkbox, TextBox } from "@atoms";
 import userEvent from "@testing-library/user-event";
 import { GetInTouchForm } from "./get-in-touch-form";

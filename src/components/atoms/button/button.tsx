@@ -6,6 +6,8 @@ type ButtonProps = {
   onClick?: () => void;
   disabled?: boolean;
   tabIndex?: number;
+  type?: string;
+  role?: string;
 };
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(

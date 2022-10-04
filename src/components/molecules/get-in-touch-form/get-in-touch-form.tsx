@@ -4,7 +4,7 @@ import styles from "./get-in-touch-form.module.scss";
 
 export const GetInTouchForm = () => {
   const [checked, setChecked] = useState<boolean>(false);
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = useState(0);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(e.target.checked);
@@ -20,6 +20,7 @@ export const GetInTouchForm = () => {
       name="get in touch form"
       className={`container ${styles.formContainer}`}
     >
+      {/* why this extra div can it not be passed to the TEXTBox */}
       <div className={styles.textBox}>
         <TextBox
           data-testid="comment"
@@ -46,7 +47,12 @@ export const GetInTouchForm = () => {
         checked={checked}
         label="I accept the"
       />
-      <Button arial-lable="submit button" label="Submit" />
+      <Button
+        type="submit"
+        aria-label="submit button"
+        role="button"
+        label="Submit"
+      />
     </form>
   );
 };
