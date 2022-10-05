@@ -1,8 +1,12 @@
+import { useForm } from "react-hook-form";
 import React, { useState } from "react";
 import { Checkbox, LabelInput, Button, TextBox } from "@atoms";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as Yup from "yup";
+
 import styles from "./get-in-touch-form.module.scss";
 
-export const GetInTouchForm = () => {
+export const GetInTouchForm: React.FC = () => {
   const [checked, setChecked] = useState<boolean>(false);
   const [count, setCount] = useState(0);
 
@@ -14,8 +18,35 @@ export const GetInTouchForm = () => {
     setCount(e.target.value.length);
   };
 
+  const validationSchema = Yup.object()
+    .shape({
+      userName: Yup.string().required("Name can't be blank"),
+    })
+    .nullable()
+    .required();
+
+  type formOptionsProps = {
+    userName: string;
+  };
+
+  const formOptions = { resolver: yupResolver(validationSchema) };
+
+  const {
+    register,
+    handleSubmit,
+    // reset,
+
+    formState: { errors },
+  } = useForm<formOptionsProps>(formOptions);
+
+  const onSubmit = (data: formOptionsProps) => {
+    console.log(data);
+  };
   return (
     <form
+      // https://github.com/react-hook-form/react-hook-form/discussions/8020
+      // eslint-disable-next-line @typescript-eslint/no-misused-promises
+      onSubmit={handleSubmit(onSubmit)}
       aria-label="How is the rising cost of living affecting you?"
       name="get in touch form"
       className={`container ${styles.formContainer}`}
@@ -28,11 +59,19 @@ export const GetInTouchForm = () => {
           onChange={onChange}
           count={count}
           placeholder="Please share your experience"
+          // className={`form-control ${errors?.name ? "is-invalid" : ""}`}
         />
       </div>
       <h3>Your contact info</h3>
       <div className={styles.smallInput}>
-        <LabelInput aria-label="User name" placeholder="Name" />
+        <LabelInput
+          inputName="userName"
+          aria-label="User name"
+          placeholder="Name"
+          {...register("userName")}
+          className={`${errors.userName ? "is-danger" : ""}`}
+        />
+        <div className="has-text-danger">{errors.userName?.message}</div>
         <LabelInput aria-label="User email" placeholder="Email address" />
         <LabelInput
           aria-label="User contact number"

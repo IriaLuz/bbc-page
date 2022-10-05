@@ -1,30 +1,19 @@
-import React from "react";
+import React, { ButtonHTMLAttributes } from "react";
 
-type ButtonProps = {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   primary?: boolean;
   label: string;
-  onClick?: () => void;
-  disabled?: boolean;
-  tabIndex?: number;
-  type?: string;
-  role?: string;
-};
+}
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    { primary = true, label, disabled = false, onClick, tabIndex }: ButtonProps,
-    ref
-  ) => {
+  ({ primary = true, label, ...buttonProps }: ButtonProps, ref) => {
     const buttonType = primary ? `button is-primary` : `button is-outlined`;
     return (
       <button
+        {...buttonProps}
         ref={ref}
-        onClick={onClick}
-        disabled={disabled}
-        type="button"
         className={buttonType}
         data-testid="icon-button"
-        tabIndex={tabIndex}
       >
         {label}
       </button>
