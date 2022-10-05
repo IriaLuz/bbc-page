@@ -18,12 +18,9 @@ export const GetInTouchForm: React.FC = () => {
     setCount(e.target.value.length);
   };
 
-  const validationSchema = Yup.object()
-    .shape({
-      userName: Yup.string().required("Name can't be blank"),
-    })
-    .nullable()
-    .required();
+  const validationSchema = Yup.object({
+    userName: Yup.string().required("Name can't be blank"),
+  }).required();
 
   type formOptionsProps = {
     userName: string;
@@ -35,7 +32,6 @@ export const GetInTouchForm: React.FC = () => {
     register,
     handleSubmit,
     // reset,
-
     formState: { errors },
   } = useForm<formOptionsProps>(formOptions);
 
@@ -65,7 +61,6 @@ export const GetInTouchForm: React.FC = () => {
       <h3>Your contact info</h3>
       <div className={styles.smallInput}>
         <LabelInput
-          inputName="userName"
           aria-label="User name"
           placeholder="Name"
           {...register("userName")}
