@@ -10,7 +10,6 @@ export const LabelInput = React.forwardRef<HTMLInputElement, InputProps>(
     <input
       ref={ref}
       className={`input ${styles.input} ${className}`}
-      type="text"
       {...labelInputProps}
     />
   )

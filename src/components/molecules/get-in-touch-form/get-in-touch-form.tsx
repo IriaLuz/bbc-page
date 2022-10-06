@@ -19,11 +19,18 @@ export const GetInTouchForm: React.FC = () => {
   };
 
   const validationSchema = Yup.object({
+    // comment: Yup.string().required("Please add your comment"),
     userName: Yup.string().required("Name can't be blank"),
-  }).required();
+    email: Yup.string()
+      .required("Email address can't be blank")
+      .email("Email is invalid"),
+    acceptTerms: Yup.bool().oneOf([false], "must be accepted"),
+  }).required("must be accepted");
 
   type formOptionsProps = {
     userName: string;
+    email: string;
+    acceptTerms: boolean;
   };
 
   const formOptions = { resolver: yupResolver(validationSchema) };
@@ -36,7 +43,7 @@ export const GetInTouchForm: React.FC = () => {
   } = useForm<formOptionsProps>(formOptions);
 
   const onSubmit = (data: formOptionsProps) => {
-    console.log(data);
+    alert(`SUCCESS!! :-)\n\n${JSON.stringify(data, null, 4)}`);
   };
   return (
     <form
@@ -55,7 +62,7 @@ export const GetInTouchForm: React.FC = () => {
           onChange={onChange}
           count={count}
           placeholder="Please share your experience"
-          // className={`form-control ${errors?.name ? "is-invalid" : ""}`}
+          // className={` ${errors?.name ? "is-invalid" : ""}`}
         />
       </div>
       <h3>Your contact info</h3>
@@ -67,7 +74,14 @@ export const GetInTouchForm: React.FC = () => {
           className={`${errors.userName ? "is-danger" : ""}`}
         />
         <div className="has-text-danger">{errors.userName?.message}</div>
-        <LabelInput aria-label="User email" placeholder="Email address" />
+        <LabelInput
+          aria-label="User email"
+          placeholder="Email address"
+          type="text"
+          {...register("email")}
+          className={`${errors.email ? "is-danger" : ""}`}
+        />
+        <div className="has-text-danger">{errors.email?.message}</div>
         <LabelInput
           aria-label="User contact number"
           placeholder="Contact number"
@@ -78,9 +92,13 @@ export const GetInTouchForm: React.FC = () => {
       <Checkbox
         aria-label="checkbox to accept the terms conditions"
         handleChange={handleChange}
+        type="checkbox"
         checked={checked}
         label="I accept the"
+        {...register("acceptTerms")}
+        className={`${errors.acceptTerms ? "is-danger" : ""}`}
       />
+      <div className="has-text-danger">{errors.acceptTerms?.message}</div>
       <Button
         type="submit"
         aria-label="submit button"
