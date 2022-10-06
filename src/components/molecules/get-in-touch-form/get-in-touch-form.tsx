@@ -6,6 +6,17 @@ import * as Yup from "yup";
 
 import styles from "./get-in-touch-form.module.scss";
 
+const validationSchema = Yup.object({
+  // comment: Yup.string().required("Please add your comment"),
+  userName: Yup.string().required("Name can't be blank"),
+  email: Yup.string()
+    .required("Email address can't be blank")
+    .email("Email is invalid"),
+  acceptTerms: Yup.bool().oneOf([true], "must be accepted"),
+})
+  .nullable()
+  .required();
+
 export const GetInTouchForm: React.FC = () => {
   const [checked, setChecked] = useState<boolean>(false);
   const [count, setCount] = useState(0);
@@ -17,17 +28,6 @@ export const GetInTouchForm: React.FC = () => {
   const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setCount(e.target.value.length);
   };
-
-  const validationSchema = Yup.object({
-    // comment: Yup.string().required("Please add your comment"),
-    userName: Yup.string().required("Name can't be blank"),
-    email: Yup.string()
-      .required("Email address can't be blank")
-      .email("Email is invalid"),
-    acceptTerms: Yup.bool().oneOf([true], "must be accepted"),
-  })
-    .nullable()
-    .required();
 
   type formOptionsProps = {
     userName: string;
@@ -69,25 +69,36 @@ export const GetInTouchForm: React.FC = () => {
       </div>
       <h3>Your contact info</h3>
       <div className={styles.smallInput}>
-        <LabelInput
-          aria-label="User name"
-          placeholder="Name"
-          {...register("userName")}
-          className={`${errors.userName ? "is-danger" : ""}`}
-        />
-        <div className="has-text-danger">{errors.userName?.message}</div>
-        <LabelInput
-          aria-label="User email"
-          placeholder="Email address"
-          type="text"
-          {...register("email")}
-          className={`${errors.email ? "is-danger" : ""}`}
-        />
-        <div className="has-text-danger">{errors.email?.message}</div>
-        <LabelInput
-          aria-label="User contact number"
-          placeholder="Contact number"
-        />
+        <div>
+          <LabelInput
+            aria-label="User name"
+            placeholder="Name"
+            {...register("userName")}
+            className={`${errors.userName ? "is-danger" : ""}`}
+          />
+          <div className={`has-text-danger ${styles.errors}`}>
+            {errors.userName?.message}
+          </div>
+        </div>
+        <div>
+          <LabelInput
+            aria-label="User email"
+            placeholder="Email address"
+            type="text"
+            {...register("email")}
+            className={`${errors.email ? "is-danger" : ""}`}
+          />
+          <div className={`has-text-danger ${styles.errors}`}>
+            {errors.email?.message}
+          </div>
+        </div>
+        <div>
+          <LabelInput
+            aria-label="User contact number"
+            placeholder="Contact number"
+          />
+          <div className={styles.optionalInput}>* Number is optional</div>
+        </div>
       </div>
       <LabelInput aria-label="User Location" placeholder="Location" />
       <LabelInput aria-label="User Age" placeholder="Age" />
@@ -100,7 +111,9 @@ export const GetInTouchForm: React.FC = () => {
         {...register("acceptTerms")}
         className={`${errors.acceptTerms ? "is-danger" : ""}`}
       />
-      <div className="has-text-danger">{errors.acceptTerms?.message}</div>
+      <div className={`has-text-danger ${styles.errors}`}>
+        {errors.acceptTerms?.message}
+      </div>
       <Button
         type="submit"
         aria-label="submit button"

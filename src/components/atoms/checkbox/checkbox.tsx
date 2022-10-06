@@ -11,13 +11,7 @@ interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
 
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   (
-    {
-      checked,
-      handleChange,
-      label,
-      className,
-      ...checkboxProps
-    }: CheckboxProps,
+    { handleChange, label, className, ...checkboxProps }: CheckboxProps,
     ref
   ) => (
     <div>
@@ -34,7 +28,6 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           Terms and Conditions
         </Link>
       </label>
-      <p>Is the box checked?{checked.toString()}</p>
     </div>
   )
 );
