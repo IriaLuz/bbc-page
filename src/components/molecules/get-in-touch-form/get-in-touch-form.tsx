@@ -69,7 +69,7 @@ export const GetInTouchForm: React.FC = () => {
       </div>
       <h3>Your contact info</h3>
       <div className={styles.smallInput}>
-        <div>
+        <div className={styles.inputWrapper}>
           <LabelInput
             aria-label="User name"
             placeholder="Name"
@@ -80,7 +80,7 @@ export const GetInTouchForm: React.FC = () => {
             {errors.userName?.message}
           </div>
         </div>
-        <div>
+        <div className={styles.inputWrapper}>
           <LabelInput
             aria-label="User email"
             placeholder="Email address"
@@ -92,7 +92,7 @@ export const GetInTouchForm: React.FC = () => {
             {errors.email?.message}
           </div>
         </div>
-        <div>
+        <div className={styles.inputWrapper}>
           <LabelInput
             aria-label="User contact number"
             placeholder="Contact number"

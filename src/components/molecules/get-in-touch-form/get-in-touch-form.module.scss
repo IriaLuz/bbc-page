@@ -36,3 +36,9 @@
 .optionalInput {
   font-size: 0.75rem;
 }
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
