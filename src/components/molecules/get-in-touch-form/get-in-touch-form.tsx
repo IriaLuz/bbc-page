@@ -24,8 +24,10 @@ export const GetInTouchForm: React.FC = () => {
     email: Yup.string()
       .required("Email address can't be blank")
       .email("Email is invalid"),
-    acceptTerms: Yup.bool().oneOf([false], "must be accepted"),
-  }).required("must be accepted");
+    acceptTerms: Yup.bool().oneOf([true], "must be accepted"),
+  })
+    .nullable()
+    .required();
 
   type formOptionsProps = {
     userName: string;
