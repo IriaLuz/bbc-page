@@ -8,7 +8,13 @@ import styles from "./get-in-touch-form.module.scss";
 
 const validationSchema = Yup.object({
   // comment: Yup.string().required("Please add your comment"),
-  userName: Yup.string().required("Name can't be blank"),
+  userName: Yup.string()
+    .required("Name can't be blank")
+    .matches(
+      /^([A-Za-z\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff\s]*)$/gi,
+      "Name can only contain Latin letters."
+    )
+    .matches(/^\s*[\S]+(\s[\S]+)+\s*$/gms, "Please enter your full name."),
   email: Yup.string()
     .required("Email address can't be blank")
     .email("Email is invalid"),
