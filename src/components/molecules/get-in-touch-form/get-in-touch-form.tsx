@@ -7,7 +7,9 @@ import * as Yup from "yup";
 import styles from "./get-in-touch-form.module.scss";
 
 const validationSchema = Yup.object({
-  // comment: Yup.string().required("Please add your comment"),
+  comment: Yup.string()
+    .required("This field can't be blank, please add your opinion")
+    .min(100),
   userName: Yup.string()
     .required("Name can't be blank")
     .matches(
@@ -42,6 +44,7 @@ export const GetInTouchForm: FC = () => {
   };
 
   type formOptionsProps = {
+    comment: string;
     userName: string;
     email: string;
     contactNumber: number | string;
@@ -75,11 +78,16 @@ export const GetInTouchForm: FC = () => {
         <TextBox
           data-testid="comment"
           aria-label="Please share your experiences"
-          onChange={onChangeTextBox}
           count={count}
           placeholder="Please share your experience"
           textMaxLength={500}
+          {...register("comment")}
+          onChange={onChangeTextBox}
+          className={`${errors.comment ? "is-danger" : ""}`}
         />
+        <div className={`has-text-danger ${styles.errors}`}>
+          {errors.comment?.message}
+        </div>
       </div>
       <h3>Your contact info</h3>
       <div className={styles.smallInput}>
