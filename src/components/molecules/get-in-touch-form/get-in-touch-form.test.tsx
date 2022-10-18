@@ -17,7 +17,14 @@ afterEach(cleanup);
 
 it("Texbox component render properly in get in touch form", async () => {
   const onChange = jest.fn();
-  render(<TextBox onChange={onChange} count={0} placeholder="test" />);
+  render(
+    <TextBox
+      onChange={onChange}
+      count={0}
+      placeholder="test"
+      textMaxLength={500}
+    />
+  );
 
   await userEvent.type(screen.getByTestId("textarea"), "hello");
   expect(onChange).toHaveBeenCalledTimes(5);

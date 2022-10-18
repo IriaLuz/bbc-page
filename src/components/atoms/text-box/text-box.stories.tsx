@@ -25,6 +25,7 @@ const Template: ComponentStory<typeof TextBox> = () => {
       placeholder="Add your opinion here"
       onChange={onChange}
       count={count}
+      textMaxLength={500}
     />
   );
 };

@@ -22,7 +22,7 @@ const validationSchema = Yup.object({
     .min(1)
     .nullable()
     .notRequired(),
-  age: Yup.number().typeError("Age is optional"),
+  age: Yup.number().typeError("Please enter a number"),
   acceptTerms: Yup.bool().oneOf([true], "must be accepted"),
 })
   .nullable()
