@@ -1,14 +1,14 @@
-import React from "react";
+import React, { ChangeEvent, FC } from "react";
 import styles from "./text-box.module.scss";
 
 type TextBoxProps = {
   placeholder: string;
-  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
   count: number;
   className?: string;
 };
 
-export const TextBox: React.FC<TextBoxProps> = ({
+export const TextBox: FC<TextBoxProps> = ({
   placeholder,
   onChange,
   count,

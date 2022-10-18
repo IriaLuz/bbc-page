@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, cleanup, fireEvent } from "@testing-library/react";
-import { Checkbox, TextBox } from "@atoms";
+import { TextBox } from "@atoms";
 import userEvent from "@testing-library/user-event";
 import { GetInTouchForm } from "./get-in-touch-form";
 
@@ -14,13 +14,6 @@ const setup = () => {
 };
 
 afterEach(cleanup);
-it("Checkbox component render properly in get in touch form", () => {
-  const handleChange = jest.fn();
-  render(<Checkbox label="test" checked={true} handleChange={handleChange} />);
-
-  const checkbox = screen.getByRole("checkbox");
-  expect((checkbox as HTMLInputElement).checked).toEqual(true);
-});
 
 it("Texbox component render properly in get in touch form", async () => {
   const onChange = jest.fn();

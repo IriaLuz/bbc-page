@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, ChangeEvent } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { TextBox } from "@atoms";
 
@@ -16,8 +16,8 @@ export default {
 } as ComponentMeta<typeof TextBox>;
 
 const Template: ComponentStory<typeof TextBox> = () => {
-  const [count, setCount] = React.useState(0);
-  const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const [count, setCount] = useState(0);
+  const onChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setCount(e.target.value.length);
   };
   return (
