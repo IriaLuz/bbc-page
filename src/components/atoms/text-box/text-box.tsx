@@ -6,6 +6,7 @@ type TextBoxProps = {
   onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
   count: number;
   className?: string;
+  textMaxLength: number;
 };
 
 export const TextBox: FC<TextBoxProps> = ({
@@ -13,15 +14,18 @@ export const TextBox: FC<TextBoxProps> = ({
   onChange,
   count,
   className,
+  textMaxLength,
 }) => (
   <div>
     <textarea
       data-testid="textarea"
-      maxLength={500}
+      maxLength={textMaxLength}
       className={`input ${styles.textBox} ${className}`}
       placeholder={placeholder}
       onChange={onChange}
     />
-    <p className={styles.counter}>{count}/500</p>
+    <p className={styles.counter}>
+      {count}/ {String(textMaxLength)}
+    </p>
   </div>
 );

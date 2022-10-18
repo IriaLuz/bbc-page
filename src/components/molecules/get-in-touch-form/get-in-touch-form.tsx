@@ -73,6 +73,7 @@ export const GetInTouchForm: FC = () => {
           onChange={onChangeTextBox}
           count={count}
           placeholder="Please share your experience"
+          textMaxLength={500}
         />
       </div>
       <h3>Your contact info</h3>
