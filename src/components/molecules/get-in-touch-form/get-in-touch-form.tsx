@@ -18,16 +18,12 @@ const validationSchema = Yup.object({
   email: Yup.string()
     .required("Email address can't be blank")
     .email("Email is invalid"),
-  contactNumber: Yup.number()
-    .typeError("please enter a number")
-    .min(10)
-    .nullable()
-    .notRequired(),
-  location: Yup.string()
-    .typeError("Location is optional")
-    .min(1)
-    .nullable()
-    .notRequired(),
+  contactNumber: Yup.string()
+    .required()
+    .matches(/^[0-9]+$/, "Must be only digits")
+    .min(11, "Must be exactly 5 digits")
+    .max(11, "Must be exactly 5 digits"),
+  location: Yup.string().typeError("Location is optional").min(1),
   age: Yup.number().typeError("Please enter a number"),
   acceptTerms: Yup.bool().oneOf([true], "must be accepted"),
 })
@@ -45,7 +41,7 @@ export const GetInTouchForm: FC = () => {
   type formOptionsProps = {
     userName: string;
     email: string;
-    contactNumber: number;
+    contactNumber: number | string;
     location: string;
     age: number;
     acceptTerms: boolean;
