@@ -24,7 +24,10 @@ const validationSchema = Yup.object({
     .min(11, "Must be exactly 5 digits")
     .max(11, "Must be exactly 5 digits"),
   location: Yup.string().typeError("Location is optional").min(1),
-  age: Yup.number().typeError("Please enter a number"),
+  age: Yup.number()
+    .typeError("Please enter a number")
+    .lessThan(100, "please add a valid age")
+    .moreThan(18, "you need to have more than 18 year old"),
   acceptTerms: Yup.bool().oneOf([true], "must be accepted"),
 })
   .nullable()
