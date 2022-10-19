@@ -40,7 +40,7 @@ export const GetInTouchForm: FC = () => {
 
   const onChangeTextBox = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setCount(e.target.value.length);
-    console.log("hola");
+    console.log("hola", e.target.value);
   };
 
   type formOptionsProps = {
@@ -65,6 +65,7 @@ export const GetInTouchForm: FC = () => {
   const onSubmit = (data: formOptionsProps) => {
     alert(`SUCCESS!! :-)\n\n${JSON.stringify(data, null, 4)}`);
   };
+
   return (
     <form
       // https://github.com/react-hook-form/react-hook-form/discussions/8020
@@ -81,8 +82,9 @@ export const GetInTouchForm: FC = () => {
           count={count}
           placeholder="Please share your experience"
           textMaxLength={500}
-          {...register("comment")}
-          onChange={onChangeTextBox}
+          {...register("comment", {
+            onChange: onChangeTextBox,
+          })}
           className={`${errors.comment ? "is-danger" : ""}`}
         />
         <div className={`has-text-danger ${styles.errors}`}>
