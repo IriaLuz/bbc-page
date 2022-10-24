@@ -21,14 +21,15 @@ const validationSchema = Yup.object({
     .required("Email address can't be blank")
     .email("Email is invalid"),
   contactNumber: Yup.string()
+    .typeError("Number is optional")
     .notRequired()
     .matches(/^[0-9]+$/, "Must be only digits")
     .min(11, "Must be exactly 11 digits")
     .max(11, "Must be exactly 11 digits"),
-  location: Yup.string().typeError("Location is optional").min(1),
+  location: Yup.string().optional().typeError("Location is optional").min(1),
   age: Yup.number()
     .typeError("Please enter a number")
-    .lessThan(100, "please add a valid age")
+    .lessThan(113, "please add a valid age")
     .moreThan(18, "you need to have more than 18 year old"),
   acceptTerms: Yup.bool().oneOf([true], "must be accepted"),
 })
