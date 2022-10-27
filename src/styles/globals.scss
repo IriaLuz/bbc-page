@@ -11,6 +11,8 @@ body {
 .button {
   border-radius: 0;
   font-weight: 800;
+  padding: 1rem;
+  height: 3rem;
 
   &:hover {
     background-color: none;
@@ -19,7 +21,19 @@ body {
   &.is-primary {
     &:hover,
     &.is-hovered {
-      background-color: colors.$submit-button-green;
+      background-color: colors.$submit-button;
+    }
+
+    &:active {
+      background-color: colors.$input-border;
+    }
+
+    &:focus:not(:active) {
+      box-shadow: unset;
     }
   }
+}
+
+h3 {
+  font-weight: 800;
 }

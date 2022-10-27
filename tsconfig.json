@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2018",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -17,10 +17,12 @@
     "baseUrl": ".",
     "paths": {
       "@components": ["src/components"],
+      "@atoms": ["src/components/atoms"],
+      "@molecules": ["src/components/molecules"],
       "@types": ["src/types"],
       "@styles/*": ["src/styles/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "."],
   "exclude": ["node_modules"]
 }

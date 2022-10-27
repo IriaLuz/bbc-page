@@ -7,6 +7,8 @@ module.exports = {
   moduleNameMapper: {
     "^.+\\.(css|less|scss)$": "babel-jest",
     "^@components": "<rootDir>/src/components",
+    "^@atoms": "<rootDir>/src/components/atoms",
+    "^@molecules": "<rootDir>/src/molecules",
     "^@pages": ["/src/pages"],
     "^@types": ["src/types"],
     "^@styles/(.*)": ["src/styles/$1"],

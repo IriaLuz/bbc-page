@@ -1,14 +1,16 @@
-import React from "react";
+import React, { InputHTMLAttributes, forwardRef } from "react";
 import styles from "./label-input.module.scss";
 
-type LabelInputProps = {
-  placeholder: string;
-};
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  className?: string;
+}
 
-export const LabelInput: React.FC<LabelInputProps> = ({ placeholder }) => (
-  <input
-    className={`input ${styles.input}`}
-    type="text"
-    placeholder={placeholder}
-  />
+export const LabelInput = forwardRef<HTMLInputElement, InputProps>(
+  ({ className, ...labelInputProps }: InputProps, ref) => (
+    <input
+      ref={ref}
+      className={`input ${styles.input} ${className}`}
+      {...labelInputProps}
+    />
+  )
 );

@@ -1,7 +1,8 @@
 @use "@styles/theme/colors";
 @use "~bulma/bulma" as bulma
   with(
-    $primary: colors.$submit-button-green,
+    $primary: colors.$submit-button,
     $button-disabled-background-color: colors.$button-disabled,
+    $input-focus-box-shadow-color: colors.$input-focus,
     $desktop: 1216px
   );

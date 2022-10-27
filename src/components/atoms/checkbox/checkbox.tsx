@@ -1,27 +1,27 @@
 import Link from "next/link";
+import React, { InputHTMLAttributes, forwardRef } from "react";
 import styles from "./checkbox.module.scss";
 
-type CheckboxProps = {
-  checked: boolean;
-  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
-};
+  className?: string;
+}
 
-export const Checkbox = ({ checked, handleChange, label }: CheckboxProps) => (
-  <div>
-    <label htmlFor="checkbox">
-      <input
-        id="checkbox"
-        className={styles.input}
-        type="checkbox"
-        checked={checked}
-        onChange={handleChange}
-      />
-      {label}
-      <Link href="/" passHref>
-        Terms and Conditions
-      </Link>
-    </label>
-    <p>Is the box checked?{checked.toString()}</p>
-  </div>
+export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
+  ({ label, className, ...checkboxProps }: CheckboxProps, ref) => (
+    <div>
+      <label htmlFor="checkbox">
+        <input
+          ref={ref}
+          id="checkbox"
+          className={`${styles.input} ${className} `}
+          {...checkboxProps}
+        />
+        {label}
+        <Link href="/" passHref>
+          Terms and Conditions
+        </Link>
+      </label>
+    </div>
+  )
 );
